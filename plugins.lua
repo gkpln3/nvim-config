@@ -5,6 +5,10 @@ local plugins = {
         require "plugins.configs.lspconfig"
         require "custom.configs.lspconfig"
      end,
+  },
+  {
+    "ojroques/nvim-osc52",
+    lazy = false
   }
 }
 
