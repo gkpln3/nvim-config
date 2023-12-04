@@ -9,5 +9,5 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 The clone this configuration
 ```bash
-git clone https://github.com/gkpln3/nvim-config.git ~/.config/nvim/custom && nvim
+git clone https://github.com/gkpln3/nvim-config.git ~/.config/nvim/lua/custom
 ```
