@@ -19,4 +19,13 @@ vim.g.clipboard = {
   paste = {['+'] = paste, ['*'] = paste},
 }
 
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = function()
+        if vim.fn.argc() > 0 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+            vim.api.nvim_command('NvimTreeFocus')
+        end
+    end,
+})
+
 return M
