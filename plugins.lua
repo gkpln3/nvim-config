@@ -9,7 +9,11 @@ local plugins = {
   {
     "ojroques/nvim-osc52",
     lazy = false
-  }
+  },
+  {
+    "github/copilot.vim",
+    lazy = false
+  },
 }
 
 return plugins
