@@ -14,6 +14,10 @@ local plugins = {
     "github/copilot.vim",
     lazy = false
   },
+  {
+    "RRethy/vim-illuminate",
+    lazy = false
+  }
 }
 
 return plugins

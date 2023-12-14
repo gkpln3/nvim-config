@@ -33,4 +33,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
+
+M.mappings = require "custom.mappings"
+
 return M
