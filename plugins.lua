@@ -16,7 +16,8 @@ local plugins = {
   },
   {
     "RRethy/vim-illuminate",
-    lazy = false
+    lazy = false,
+    autostart = true
   }
 }
 
