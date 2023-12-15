@@ -4,7 +4,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 -- find more https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { "html", "cssls", "clangd", "sourcekit", "gopls", "lemminx", "pyright", "spectral"}
+local servers = { "html", "cssls", "clangd", "sourcekit", "gopls", "lemminx", "pyright", "spectral", "dockerls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

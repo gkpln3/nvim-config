@@ -33,6 +33,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
+vim.opt.iskeyword:append("-")
+
 M.mappings = require "custom.mappings"
 vim.g.copilot_assume_mapped = true
 
