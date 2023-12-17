@@ -19,6 +19,14 @@ local plugins = {
     lazy = false,
     autostart = true
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
+  {
+    "lewis6991/whatthejump.nvim",
+    lazy = false
+  }
 
   -- {
   --   "hrsh7th/nvim-cmp",

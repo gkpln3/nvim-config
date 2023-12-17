@@ -42,10 +42,13 @@ vim.g.copilot_assume_mapped = true
 -- Disable tab for cmp since it is used for copilot
 local present, cmp = pcall(require, "cmp")
 if present then
+  local function no_action(fallback)
+    fallback()
+  end
   cmp.setup({
     mapping = {
-      ['<Tab>'] = nil,
-      ['<S-Tab>'] = nil,
+      ['<Tab>'] = no_action,
+      ['<S-Tab>'] = no_action,
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
     },
