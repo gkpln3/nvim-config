@@ -19,7 +19,7 @@ local M = {}
     end
 end
 
-function live_grep_in_directory()
+function LiveGrepInDirectory()
     local input_opts = {
       prompt = 'Enter Directory To Grep In: ',
       default = '',
@@ -33,8 +33,33 @@ function live_grep_in_directory()
     require('telescope.builtin').live_grep({ search_dirs = {dir} })
 end
 
+function CustomDoubleClick()
+    -- Save the current iskeyword value
+    local original_iskeyword = vim.bo.iskeyword
+
+    -- Add hyphen and dot to iskeyword
+    vim.bo.iskeyword = vim.bo.iskeyword .. ",-"
+    if vim.bo.filetype == "terminal" then
+      vim.bo.iskeyword = vim.bo.iskeyword .. ",.,/"
+    end
+
+
+    -- Wait a tiny bit for iskeyword to update
+    vim.defer_fn(function()
+        -- Simulate word selection with the mouse
+        vim.cmd('normal! bve')
+
+        -- Restore the original iskeyword
+        vim.bo.iskeyword = original_iskeyword
+    end, 10)
+end
+
 M.guy = {
 	n = {
+    ["<2-LeftMouse>"] = {
+      ":lua CustomDoubleClick()<CR>",
+      "Select hyphenated word",
+    },
 		["<leader><leader>"] = {"<cmd> Telescope resume <CR><ESC>", "Resume last telescope session"},
 		["<leader>fr"] = {"<cmd> Telescope grep_string <CR><ESC>", "Find text under cursor"},
     ["<C-]>"] = {
@@ -66,7 +91,7 @@ M.guy = {
       "Find word in nvimtree",
     },
     ["<leader>fW"] = {
-      "<cmd>lua live_grep_in_directory()<CR>",
+      "<cmd>lua LiveGrepInDirectory()<CR>",
       "Find word in nvimtree",
     },
 	}

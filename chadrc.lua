@@ -37,8 +37,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- Make double click select whole words including - and .
-vim.opt.iskeyword:append("-")
-vim.opt.iskeyword:append(".")
+-- vim.opt.iskeyword:append("-")
+-- vim.opt.iskeyword:append(".")
 
 vim.g.copilot_assume_mapped = true
 
