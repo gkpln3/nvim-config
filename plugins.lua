@@ -1,3 +1,5 @@
+local overrides = require("custom.configs.overrides")
+
 local plugins = {
   {
     "neovim/nvim-lspconfig",
@@ -30,7 +32,11 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     lazy = false
-  }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
 
   -- {
   --   "hrsh7th/nvim-cmp",
@@ -44,6 +50,16 @@ local plugins = {
   --     ["<C-n>"] = require("cmp").next_source(),
   --     ["<C-p>"] = require("cmp").prev_source(),
   --   },
+};
+
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+parser_configs.gotmpl = {
+  install_info = {
+    url = "https://github.com/ngalaiko/tree-sitter-go-template",
+    files = {"src/parser.c"}
+  },
+  filetype = "gotmpl",
+  used_by = {"gotext", "gotemplate", "yaml", "tpl", "gohtmltmpl"}
 }
 
 return plugins

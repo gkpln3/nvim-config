@@ -58,4 +58,6 @@ if present then
   })
 end
 
+vim.cmd([[command! W write]])
+
 return M
