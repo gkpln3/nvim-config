@@ -34,8 +34,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.opt.iskeyword:append("-")
+vim.opt.iskeyword:append(".")
 
 M.mappings = require "custom.mappings"
 vim.g.copilot_assume_mapped = true
+
+-- Disable tab for cmp since it is used for copilot
+local present, cmp = pcall(require, "cmp")
+if present then
+  cmp.setup({
+    mapping = {
+      ['<Tab>'] = nil,
+      ['<S-Tab>'] = nil,
+      ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+      ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    },
+  })
+end
+
 
 return M
