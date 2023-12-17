@@ -56,5 +56,27 @@ if present then
   })
 end
 
+ function live_grep_in_nvimtree_directory()
+    local is_nvimtree_open = pcall(vim.api.nvim_buf_get_var, 0, 'nvim_tree')
+
+    if is_nvimtree_open then
+        -- Get the path of the selected item in NvimTree
+        local lib = require('nvim-tree.lib')
+        local node = lib.get_node_at_cursor()
+        local path = node.absolute_path
+
+        -- Check if the path is a directory
+        if node.entries ~= nil then
+            require('telescope.builtin').live_grep({ search_dirs = {path} })
+        else
+            print('Selected item is not a directory')
+        end
+    else
+        print('NvimTree is not focused')
+    end
+end
+
+-- Key mapping to invoke the function
+vim.api.nvim_set_keymap('n', '<leader>fw', ':lua live_grep_in_nvimtree_directory()<CR>', { noremap = true, silent = true })
 
 return M
