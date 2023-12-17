@@ -26,6 +26,10 @@ local plugins = {
   {
     "lewis6991/whatthejump.nvim",
     lazy = false
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false
   }
 
   -- {

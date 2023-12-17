@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 vim.opt.iskeyword:append("-")
 vim.opt.iskeyword:append(".")
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 M.mappings = require "custom.mappings"
 vim.g.copilot_assume_mapped = true
