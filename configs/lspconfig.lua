@@ -1,7 +1,6 @@
 local configs = require("plugins.configs.lspconfig")
 local on_attach = configs.on_attach
 local capabilities = configs.capabilities
-
 local lspconfig = require "lspconfig"
 -- find more https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = { "html", "cssls", "clangd", "sourcekit", "gopls", "lemminx", "pyright", "dockerls", "helm_ls"}

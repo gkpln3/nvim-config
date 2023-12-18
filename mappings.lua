@@ -74,10 +74,6 @@ M.guy = {
       end,
       "Goto prev buffer",
     },
-    ["<leader>h"] = {
-      "<cmd>nohlsearch<CR>",
-      "Clear highlights",
-    },
     ["<leader>ca"] = {
       "cmd lua vim.lsp.buf.code_action()<CR>",
       "LSP code action",
@@ -86,10 +82,10 @@ M.guy = {
       "<cmd>Git<CR>",
       "Git status",
     },
-    ["<leader>fw"] = {
-      "<cmd>lua live_grep_in_nvimtree_directory()<CR>",
-      "Find word in nvimtree",
-    },
+    -- ["<leader>fw"] = {
+    --   "<cmd>lua live_grep_in_nvimtree_directory()<CR>",
+    --   "Find word in nvimtree",
+    -- },
     ["<leader>fW"] = {
       "<cmd>lua LiveGrepInDirectory()<CR>",
       "Find word in nvimtree",
@@ -97,11 +93,35 @@ M.guy = {
 	}
 }
 
+M.disabled = {
+  n = {
+    -- cycle through buffers
+    ["<tab>"] = "",
+
+    ["<S-tab>"] = "",
+  }
+}
+
+-- Move lines using Alt-j/k.
 vim.api.nvim_set_keymap('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<A-k>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+-- Map C-w to work also in terminal mode
+vim.api.nvim_set_keymap('t', '<C-w>', '<C-\\><C-n><C-w>', {noremap = true})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>fm', ':EasyAlign*<Bar><CR>', { noremap = true, silent = true })
+    end,
+})
+vim.keymap.set('n', '<C-i>', function()
+  require('whatthejump').show_jumps(true)
+  return '<C-i>'
+end, {expr = true, desc = 'show jumps'})
 
 return M

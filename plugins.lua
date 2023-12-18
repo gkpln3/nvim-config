@@ -37,7 +37,29 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-
+  {
+    "L3MON4D3/LuaSnip",
+    enabled = false
+  },
+  {
+    "junegunn/vim-easy-align",
+    lazy = false
+  },
+  {
+    'petertriho/nvim-scrollbar',
+    lazy = false,
+    autostart = true
+  },
+  {
+  "kevinhwang91/nvim-hlslens",
+  config = function()
+      -- require('hlslens').setup() is not required
+      require("scrollbar.handlers.search").setup({
+          -- hlslens config overrides
+      })
+    end,
+    lazy = false
+  },
   -- {
   --   "hrsh7th/nvim-cmp",
   --   opts = {
@@ -61,5 +83,6 @@ parser_configs.gotmpl = {
   filetype = "gotmpl",
   used_by = {"gotext", "gotemplate", "yaml", "tpl", "gohtmltmpl"}
 }
+
 
 return plugins
