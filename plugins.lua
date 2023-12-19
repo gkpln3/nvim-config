@@ -37,10 +37,10 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-  {
-    "L3MON4D3/LuaSnip",
-    enabled = false
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   enabled = false
+  -- },
   {
     "junegunn/vim-easy-align",
     lazy = false
@@ -60,9 +60,26 @@ local plugins = {
     end,
     lazy = false
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = {
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = {
+      actions = {
+        open_file = {
+          resize_window = false,
+        },
+      },
+      renderer = {
+        root_folder_label = true,
+      },
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      snippet = nil
+    }
+  },
+
   --     mappings = {
   --     ["<C-d>"] = require("cmp").scroll_docs(-4),
   --     ["<C-f>"] = require("cmp").scroll_docs(4),

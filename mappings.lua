@@ -90,7 +90,11 @@ M.guy = {
       "<cmd>lua LiveGrepInDirectory()<CR>",
       "Find word in nvimtree",
     },
-	}
+    ["<C-p>"] = {
+      "<cmd>Projects<CR><ESC>",
+      "Find command",
+    }
+  }
 }
 
 M.disabled = {
@@ -109,6 +113,7 @@ vim.api.nvim_set_keymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, s
 vim.api.nvim_set_keymap('i', '<A-k>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
 
 -- Map C-w to work also in terminal mode
 vim.api.nvim_set_keymap('t', '<C-w>', '<C-\\><C-n><C-w>', {noremap = true})
