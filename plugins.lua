@@ -3,10 +3,10 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
   {
     "neovim/nvim-lspconfig",
-     config = function()
-        require "plugins.configs.lspconfig"
-        require "custom.configs.lspconfig"
-     end,
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
   },
   {
     "ojroques/nvim-osc52",
@@ -70,6 +70,12 @@ local plugins = {
       },
       renderer = {
         root_folder_label = true,
+        highlight_git = true,
+        icons = {
+          show = {
+            git = true,
+          },
+        },
       },
     },
   },
