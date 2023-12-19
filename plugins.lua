@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 local plugins = {
   {
@@ -10,16 +10,16 @@ local plugins = {
   },
   {
     "ojroques/nvim-osc52",
-    lazy = false
+    lazy = false,
   },
   {
     "github/copilot.vim",
-    lazy = false
+    lazy = false,
   },
   {
     "RRethy/vim-illuminate",
     lazy = false,
-    autostart = true
+    autostart = true,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -27,11 +27,11 @@ local plugins = {
   },
   {
     "lewis6991/whatthejump.nvim",
-    lazy = false
+    lazy = false,
   },
   {
     "tpope/vim-fugitive",
-    lazy = false
+    lazy = false,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -43,22 +43,22 @@ local plugins = {
   -- },
   {
     "junegunn/vim-easy-align",
-    lazy = false
-  },
-  {
-    'petertriho/nvim-scrollbar',
     lazy = false,
-    autostart = true
   },
   {
-  "kevinhwang91/nvim-hlslens",
-  config = function()
+    "petertriho/nvim-scrollbar",
+    lazy = false,
+    autostart = true,
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
       -- require('hlslens').setup() is not required
-      require("scrollbar.handlers.search").setup({
-          -- hlslens config overrides
-      })
+      require("scrollbar.handlers.search").setup {
+        -- hlslens config overrides
+      }
     end,
-    lazy = false
+    lazy = false,
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -76,30 +76,38 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = {
-      snippet = nil
-    }
+      snippet = nil,
+    },
   },
-
-  --     mappings = {
-  --     ["<C-d>"] = require("cmp").scroll_docs(-4),
-  --     ["<C-f>"] = require("cmp").scroll_docs(4),
-  --     ["<Down>"] = require("cmp").select_next_item(),
-  --     ["<Up>"] = require("cmp").select_prev_item(),
-  --     ["<C-Space>"] = require("cmp").complete(),
-  --     ["<C-n>"] = require("cmp").next_source(),
-  --     ["<C-p>"] = require("cmp").prev_source(),
-  --   },
-};
+  {
+    "mhartington/formatter.nvim",
+    lazy = false,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    opts = {
+      automatic_installation = true,
+    },
+  },
+  {
+    "sbdchd/neoformat",
+    lazy = false,
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    enabled = false,
+  },
+}
 
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 parser_configs.gotmpl = {
   install_info = {
     url = "https://github.com/ngalaiko/tree-sitter-go-template",
-    files = {"src/parser.c"}
+    files = { "src/parser.c" },
   },
   filetype = "gotmpl",
-  used_by = {"gotext", "gotemplate", "yaml", "tpl", "gohtmltmpl"}
+  used_by = { "gotext", "gotemplate", "yaml", "tpl", "gohtmltmpl" },
 }
-
 
 return plugins

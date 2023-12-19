@@ -26,7 +26,3 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.helm_ls.setup {
-  filetypes = {"helm", "yaml", "yml", "tpl"},
-  cmd = {"helm_ls", "serve"},
-}
