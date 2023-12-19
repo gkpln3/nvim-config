@@ -90,7 +90,7 @@ M.guy = {
       "Find word in nvimtree",
     },
     ["<C-p>"] = {
-      "<cmd>Projects<CR><ESC>",
+      "<cmd>Projects<CR>",
       "Find command",
     },
     ["<leader>fm"] = {
@@ -101,6 +101,14 @@ M.guy = {
       "<cmd>Telescope<CR>",
       "Telescope",
     },
+    ["<C-j>"] = {
+      "2<C-e>",
+      "Scroll down",
+    },
+    ["<C-k>"] = {
+      "2<C-y>",
+      "Scroll up",
+    }
   },
 }
 
