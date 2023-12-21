@@ -185,4 +185,12 @@ M.ui.tabufline = {
   enabled = false
 }
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "term://*",
+    callback = function()
+        if vim.fn.mode() == 'n' then
+            vim.cmd('startinsert')
+        end
+    end
+})
 return M
