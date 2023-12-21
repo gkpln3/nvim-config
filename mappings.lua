@@ -143,4 +143,13 @@ vim.keymap.set("n", "<C-i>", function()
   return "<C-i>"
 end, { expr = true, desc = "show jumps" })
 
+local term_clear = function()
+  vim.fn.feedkeys("", 'n')
+  local sb = vim.bo.scrollback
+  vim.bo.scrollback = 1
+  vim.bo.scrollback = sb
+end
+
+vim.keymap.set('t', '<C-l>', term_clear)
+
 return M

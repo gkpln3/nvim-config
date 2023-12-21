@@ -180,5 +180,9 @@ update_mru_projects(current_path)
 
 -- Command to invoke the picker
 vim.api.nvim_create_user_command("Projects", project_picker, {})
+M.ui.lsp_semantic_tokens = true
+M.ui.tabufline = {
+  enabled = false
+}
 
 return M

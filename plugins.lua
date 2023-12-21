@@ -104,6 +104,10 @@ local plugins = {
     "rafamadriz/friendly-snippets",
     enabled = false,
   },
+  {
+    "nvchad.tabufline",
+    enabled = false,
+  }
 }
 
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
