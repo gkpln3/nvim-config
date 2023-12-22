@@ -35,7 +35,7 @@ local function open_nvim_tree(data)
   vim.cmd.cd(data.file)
 
   -- open the tree
-  require("nvim-tree.api").tree.toggle {
+  require("nvim-tree.api").tree.open {
     path = nil,
     current_window = false,
     find_file = false,
@@ -136,6 +136,8 @@ end
 local function on_project_selected(selection)
   update_mru_projects(selection.value.path)
   vim.cmd("cd " .. selection.value.path)
+  open_nvim_tree({ file = selection.value.path })
+
 end
 
 -- Modified project picker function
