@@ -121,6 +121,23 @@ M.disabled = {
   },
 }
 
+M.nvim_dap = {
+	n = {
+		["<leader>dl"] = { "<cmd>lua require'dap'.step_into()<CR>", "debugger step into" },
+		["<leader>dj"] = { "<cmd>lua require'dap'.step_over()<CR>", "debugger step over" },
+		["<leader>dk"] = { "<cmd>lua require'dap'.step_out()<CR>", "debugger step out" },
+		["<leader>d<space>"] = { "<cmd>lua require'dap'.continue()<CR>", "debugger continue" },
+		["<leader>db"] = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "debugger toggle breakpoint" },
+		["<leader>dd"] = {
+			"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+			"debugger set conditional breakpoint",
+		},
+		["<leader>de"] = { "<cmd>lua require'dap'.terminate()<CR>", "debugger reset" },
+		["<leader>dr"] = { "<cmd>lua require'dap'.run_last()<CR>", "debugger reset" },
+		-- map("n", "<leader>m", ":MaximizerToggle!<CR>", { noremap = true })
+	},
+}
+
 -- Move lines using Alt-j/k.
 vim.api.nvim_set_keymap("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })

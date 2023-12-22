@@ -17,6 +17,7 @@ local servers = {
   "cssmodules_ls",
   "angularls",
   "ansiblels",
+  "dartls",
 }
 
 for _, lsp in ipairs(servers) do
