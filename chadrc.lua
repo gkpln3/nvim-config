@@ -3,6 +3,7 @@ local M = {}
 M.ui = { theme = "onedark" }
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
+M.ui.lsp_semantic_tokens = true
 
 vim.opt.relativenumber = true
 vim.o.scrolloff = 2
@@ -68,6 +69,9 @@ if present then
 end
 
 vim.cmd [[command! W write]]
+vim.cmd [[command! Wq write | quit]]
+vim.cmd [[command! WQ write | quit]]
+vim.cmd [[command! Q quit]]
 
 local function adjustNvimTreeWidth()
   -- Get the total number of windows
@@ -195,4 +199,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         end
     end
 })
+
+-- This makes directories open when given as an argument
+vim.opt.shortmess:append "c"
+-- This disables wrapping when getting to the end of the line
+vim.opt.whichwrap:remove "<>[]hl"
+
 return M
+

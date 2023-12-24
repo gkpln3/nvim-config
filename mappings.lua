@@ -168,5 +168,12 @@ local term_clear = function()
 end
 
 vim.keymap.set('t', '<C-l>', term_clear)
+vim.cmd [[command! W write]]
+vim.cmd [[command! Wq write | quit]]
+vim.cmd [[command! WQ write | quit]]
+vim.cmd [[command! Q quit]]
+
+-- Map d to copy to the void register
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
 
 return M
